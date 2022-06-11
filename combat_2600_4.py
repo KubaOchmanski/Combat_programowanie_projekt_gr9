@@ -123,7 +123,6 @@ def main():
         antyspeed_y= 1
 
         #ruchy pierwszego czołgu
-        orientacjaczolgu = 3
         if pygame.key.get_pressed()[pygame.K_UP]:
             orientacjaczolgu = 12
             czolg1 = pygame.transform.rotate(
@@ -131,28 +130,30 @@ def main():
             speed_y*= -1
             czolg.y += speed_y
 
-        elif pygame.key.get_pressed()[pygame.K_DOWN]:
+        if pygame.key.get_pressed()[pygame.K_DOWN]:
             orientacjaczolgu = 6
             czolg1 = pygame.transform.rotate(
                 pygame.transform.scale(czolg1obraz, (50,50)), 180)
             speed_y*= 1
             czolg.y += speed_y
 
-        elif pygame.key.get_pressed()[pygame.K_RIGHT]:
+        if pygame.key.get_pressed()[pygame.K_RIGHT]:
             orientacjaczolgu = 3
             czolg1 = pygame.transform.rotate(
                 pygame.transform.scale(czolg1obraz, (50,50)), 270)
             speed_x*= 1
             czolg.x += speed_x
 
-        elif pygame.key.get_pressed()[pygame.K_LEFT]:
+        if pygame.key.get_pressed()[pygame.K_LEFT]:
             orientacjaczolgu = 9
             czolg1 = pygame.transform.rotate(
                 pygame.transform.scale(czolg1obraz, (50,50)), 90)
             speed_x*= -1
             czolg.x += speed_x
 
-#!!!DETEKCJA KOLIZJI!!! (klasa Poziom, def kolizja) (czołg się ślizga)
+
+
+        #!!!DETEKCJA KOLIZJI!!! (klasa Poziom, def kolizja) (czołg się ślizga)
         #kolizja potrzebuje zabezpiecznia
         tolerancja= 10
         if czolg.colliderect(przeszkoda):
@@ -458,7 +459,7 @@ def main():
                 if (przeszkoda17.top- czolg.bottom) < tolerancja:
                     czolg.y -= speed_y
 
-    #!!!GRANICE!!!! (czołg się nie ślizga)
+        #!!!GRANICE!!!! (czołg się nie ślizga)
         if czolg.right == szerokosc_okna:
             czolg.x -= speed_x
         if czolg.left == 0:
@@ -468,15 +469,37 @@ def main():
         if czolg.bottom == wysokosc_okna:
             czolg.y -= speed_y
 
-        #!!!STRZELANIE!!! nie chce się odczepic od czołgu
+        #!!!STRZELANIE!!!
         if pygame.key.get_pressed()[pygame.K_SPACE]:
             strzelanie= True
-            strzal= pygame.Rect(czolg.x, czolg.y, 10,10)
+            if orientacjaczolgu == 3:
+                strzal= pygame.Rect(czolg.x+50, czolg.y+21, 9, 9)
+            if orientacjaczolgu == 6:
+                strzal= pygame.Rect(czolg.x+21, czolg.y+50, 9, 9)
+            if orientacjaczolgu == 9:
+                strzal= pygame.Rect(czolg.x, czolg.y+21, 9, 9)
+            if orientacjaczolgu == 12:
+                strzal= pygame.Rect(czolg.x+21, czolg.y, 9, 9)
 
         if strzelanie:
-            pygame.draw.rect(screen,(0,255,0),strzal)
-            strzal.x += 2
-            licznik_strzelanie+=1
+
+            if orientacjaczolgu == 3:
+                pygame.draw.rect(screen,(0,255,0),strzal)
+                strzal.x += 2
+                licznik_strzelanie+=1
+            if orientacjaczolgu == 6:
+                pygame.draw.rect(screen,(0,255,0),strzal)
+                strzal.y += 2
+                licznik_strzelanie+=1
+            if orientacjaczolgu == 9:
+                pygame.draw.rect(screen,(0,255,0),strzal)
+                strzal.x -= 2
+                licznik_strzelanie+=1
+            if orientacjaczolgu == 12:
+                pygame.draw.rect(screen,(0,255,0),strzal)
+                strzal.y -= 2
+                licznik_strzelanie+=1
+
             if strzal.colliderect(przeszkoda):
                 strzelanie= False
                 licznik_strzelanie = 0
