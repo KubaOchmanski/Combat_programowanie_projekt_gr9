@@ -30,7 +30,7 @@ def main():
     czolg1 = pygame.transform.rotate(pygame.transform.scale(
         czolg1obraz, (50,50)), 270)
 
-    czolg22obraz = pygame.image.load('niebieski.png')
+    czolg22obraz = pygame.image.load('zolty.png')
     czolg22 = pygame.transform.rotate(pygame.transform.scale(
         czolg22obraz, (50,50)), 90)
 
@@ -88,25 +88,25 @@ def main():
 
 
         #RENDER CZOŁGU I PRZESZKODY
-        screen.fill((30,30,30))
-        pygame.draw.rect(screen,(255,0,0),przeszkoda)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda1)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda2)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda3)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda4)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda5)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda6)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda7)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda8)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda9)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda10)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda11)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda12)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda13)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda14)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda15)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda16)
-        pygame.draw.rect(screen,(255,0,0),przeszkoda17)
+        screen.fill((98,52,18))
+        pygame.draw.rect(screen,(50,150,50),przeszkoda)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda1)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda2)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda3)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda4)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda5)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda6)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda7)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda8)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda9)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda10)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda11)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda12)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda13)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda14)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda15)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda16)
+        pygame.draw.rect(screen,(50,150,50),przeszkoda17)
 
 
         #rysowanie czołgów na ekranie
@@ -475,28 +475,28 @@ def main():
             if orientacjaczolgu == 3:
                 strzal= pygame.Rect(czolg.x+50, czolg.y+21, 9, 9)
             if orientacjaczolgu == 6:
-                strzal= pygame.Rect(czolg.x+21, czolg.y+50, 9, 9)
+                strzal= pygame.Rect(czolg.x+20, czolg.y+50, 9, 9)
             if orientacjaczolgu == 9:
-                strzal= pygame.Rect(czolg.x, czolg.y+21, 9, 9)
+                strzal= pygame.Rect(czolg.x, czolg.y+20, 9, 9)
             if orientacjaczolgu == 12:
                 strzal= pygame.Rect(czolg.x+21, czolg.y, 9, 9)
 
         if strzelanie:
 
             if orientacjaczolgu == 3:
-                pygame.draw.rect(screen,(0,255,0),strzal)
+                pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.x += 2
                 licznik_strzelanie+=1
             if orientacjaczolgu == 6:
-                pygame.draw.rect(screen,(0,255,0),strzal)
+                pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.y += 2
                 licznik_strzelanie+=1
             if orientacjaczolgu == 9:
-                pygame.draw.rect(screen,(0,255,0),strzal)
+                pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.x -= 2
                 licznik_strzelanie+=1
             if orientacjaczolgu == 12:
-                pygame.draw.rect(screen,(0,255,0),strzal)
+                pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.y -= 2
                 licznik_strzelanie+=1
 
