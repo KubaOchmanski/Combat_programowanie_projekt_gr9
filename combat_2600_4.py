@@ -94,8 +94,7 @@ def main():
         for event in pygame.event.get():
             #stopuje jesli użytkownik zamknął okno
             if event.type == pygame.QUIT:
-                running = False
-
+                running = False   
 
 
         #zegar gry 2
@@ -493,7 +492,14 @@ def main():
             czolg.y += speed_y *-1
         if czolg.bottom == wysokosc_okna:
             czolg.y -= speed_y
-
+            
+            
+        #PUNKTACJA
+        punkty1 = 0
+        font = pygame.font.Font('freesansbold.ttt', 32)
+        textX = 40
+        textY = 10
+        
         #!!!STRZELANIE!!!
         if pygame.key.get_pressed()[pygame.K_SPACE]:
             strzelanie= True
@@ -511,19 +517,19 @@ def main():
             if orientacjaczolgu == 3:
                 pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.x += 2
-                licznik_strzelanie+=1
+                licznik_strzelanie += 1
             if orientacjaczolgu == 6:
                 pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.y += 2
-                licznik_strzelanie+=1
+                licznik_strzelanie += 1
             if orientacjaczolgu == 9:
                 pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.x -= 2
-                licznik_strzelanie+=1
+                licznik_strzelanie += 1
             if orientacjaczolgu == 12:
                 pygame.draw.rect(screen,(255,255,240),strzal)
                 strzal.y -= 2
-                licznik_strzelanie+=1
+                licznik_strzelanie += 1
 
             if strzal.colliderect(przeszkoda):
                 strzelanie= False
@@ -580,19 +586,33 @@ def main():
                 strzelanie= False
                 licznik_strzelanie = 0
             if strzal.colliderect(czolg2):
-                strzelanie= False
+                strzelanie = False
                 licznik_strzelanie = 0
                 pygame.mixer.Sound.play(wybuch)
-                print("trafiony")
+                print("Trafiony!")
+                punkty += 1
+                
 
         if licznik_strzelanie >= szerokosc_okna:
             strzelanie = False
             licznik_strzelanie = 0
-
-
+        
+        #koniecGry
+        font_k = pygame.font.Font('freesansbold.ttf', 80)
+        
+        if punkty1==3:
+            koniec = font.render("KONIEC. /n Wygrałeś!", True, (120, 190, 99))
+            screen.blit(koniec, 300, 400)
+            break
 
 
         #odświeżanie ekranu
         pygame.display.flip()
+  
+def tablica_punktow(x,y):
+    score = font.render("Punkty: " + str(punkty1), True, (0,0,0))
+    screen.blit(score, (x, y)) 
+
 main()
+tablica_punktow(textX, textY)
 pygame.quit()
