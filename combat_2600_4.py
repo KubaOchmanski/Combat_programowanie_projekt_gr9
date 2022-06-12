@@ -496,7 +496,7 @@ def main():
             
         #PUNKTACJA
         punkty1 = 0
-        font = pygame.font.Font('freesansbold.ttt', 32)
+        font = pygame.font.Font('28dayslater.ttf', 32)
         textX = 40
         textY = 10
         
@@ -598,7 +598,7 @@ def main():
             licznik_strzelanie = 0
         
         #koniecGry
-        font_k = pygame.font.Font('freesansbold.ttf', 80)
+        font_k = pygame.font.Font('28dayslater.ttf', 80)
         
         if punkty1==3:
             koniec = font.render("KONIEC. /n Wygrałeś!", True, (120, 190, 99))
