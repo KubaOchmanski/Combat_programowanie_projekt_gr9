@@ -494,11 +494,16 @@ def main():
             czolg.y -= speed_y
             
             
-        #PUNKTACJA
+        #PUNKTACJA - wyswietlanie
         punkty1 = 0
         font = pygame.font.Font('28dayslater.ttf', 32)
-        textX = 40
+        textX = 50
         textY = 10
+        
+        punkt = font.render("Trafiony!", True, (120, 190, 99))
+
+        font_k = pygame.font.Font('28dayslater.ttf', 80)
+        
         
         #!!!STRZELANIE!!!
         if pygame.key.get_pressed()[pygame.K_SPACE]:
@@ -589,8 +594,8 @@ def main():
                 strzelanie = False
                 licznik_strzelanie = 0
                 pygame.mixer.Sound.play(wybuch)
-                print("Trafiony!")
-                punkty += 1
+                screen.blit(punkt, 50, 50)
+                punkty1 += 1
                 
 
         if licznik_strzelanie >= szerokosc_okna:
@@ -601,7 +606,7 @@ def main():
         font_k = pygame.font.Font('28dayslater.ttf', 80)
         
         if punkty1==3:
-            koniec = font.render("KONIEC. /n Wygrałeś!", True, (120, 190, 99))
+            koniec = font_k.render("KONIEC. /n Wygrałeś!", True, (120, 190, 99))
             screen.blit(koniec, 300, 400)
             break
 
