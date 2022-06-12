@@ -9,6 +9,7 @@ def main():
 
     #start z bazowymi parametrami
     pygame.init()
+    pygame.mixer.init()
 
     #zegar gry 1 (nie włączać przed fazą alfa)
     # clock= pygame.time.Clock()
@@ -28,6 +29,10 @@ def main():
     trawa5 = pygame.transform.scale(trawa, (40,80))
     # screen.blit(ziemia,(0,0))
     
+    #dźwięk
+    wybuch = pygame.mixer.Sound(os.path.join('wybuch.mp3'))
+    muzyka = pygame.mixer.music.load(os.path.join('projektcichszy.mp3'))
+    pygame.mixer.music.play(-1)
 
     #nazwyanie okna \
     pygame.display.set_caption('COMBAT')
@@ -575,6 +580,7 @@ def main():
             if strzal.colliderect(czolg2):
                 strzelanie= False
                 licznik_strzelanie = 0
+                pygame.mixer.Sound.play(wybuch)
                 print("trafiony")
 
         if licznik_strzelanie >= szerokosc_okna:
