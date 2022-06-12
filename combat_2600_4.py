@@ -31,8 +31,10 @@ def main():
     
     #dźwięk
     wybuch = pygame.mixer.Sound(os.path.join('wybuch.mp3'))
+    wybuch.set_volume(0.3)
     muzyka = pygame.mixer.music.load(os.path.join('projektcichszy.mp3'))
     pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(0.7)
 
     #nazwyanie okna \
     pygame.display.set_caption('COMBAT')
