@@ -19,6 +19,15 @@ def main():
 
     #tworzenie okna
     screen = pygame.display.set_mode((szerokosc_okna, wysokosc_okna))
+    ziemia = pygame.image.load('ziemia1.png')
+    trawa = pygame.image.load('trawa.jpeg')
+    trawa1 = pygame.transform.scale(trawa, (120,60))
+    trawa2 = pygame.transform.scale(trawa, (120,20))
+    trawa3 = pygame.transform.scale(trawa, (20,20))
+    trawa4 = pygame.transform.scale(trawa, (20,200))
+    trawa5 = pygame.transform.scale(trawa, (40,80))
+    # screen.blit(ziemia,(0,0))
+    
 
     #nazwyanie okna \
     pygame.display.set_caption('COMBAT')
@@ -89,24 +98,33 @@ def main():
 
         #RENDER CZOŁGU I PRZESZKODY
         screen.fill((98,52,18))
-        pygame.draw.rect(screen,(50,150,50),przeszkoda)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda1)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda2)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda3)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda4)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda5)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda6)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda7)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda8)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda9)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda10)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda11)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda12)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda13)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda14)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda15)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda16)
-        pygame.draw.rect(screen,(50,150,50),przeszkoda17)
+
+        screen.blit(trawa1,(przeszkoda.x, przeszkoda.y))
+        screen.blit(trawa1,(przeszkoda1.x, przeszkoda1.y))
+        screen.blit(trawa1,(przeszkoda16.x, przeszkoda16.y))
+        screen.blit(trawa1,(przeszkoda17.x, przeszkoda17.y))
+
+        screen.blit(trawa2,(przeszkoda2.x, przeszkoda2.y))
+        screen.blit(trawa2,(przeszkoda3.x, przeszkoda3.y))
+
+        screen.blit(trawa3,(przeszkoda4.x, przeszkoda4.y))
+        screen.blit(trawa3,(przeszkoda5.x, przeszkoda5.y))
+        screen.blit(trawa3,(przeszkoda6.x, przeszkoda6.y))
+        screen.blit(trawa3,(przeszkoda7.x, przeszkoda7.y))
+        screen.blit(trawa3,(przeszkoda10.x, przeszkoda10.y))
+        screen.blit(trawa3,(przeszkoda11.x, przeszkoda11.y))
+        screen.blit(trawa3,(przeszkoda12.x, przeszkoda12.y))
+        screen.blit(trawa3,(przeszkoda13.x, przeszkoda13.y))
+
+        screen.blit(trawa4,(przeszkoda8.x, przeszkoda8.y))
+        screen.blit(trawa4,(przeszkoda9.x, przeszkoda9.y))
+
+        screen.blit(trawa5,(przeszkoda14.x, przeszkoda14.y))
+        screen.blit(trawa5,(przeszkoda15.x, przeszkoda15.y))
+
+        #rysowanie czołgów na ekranie
+        screen.blit(czolg1, (czolg.x, czolg.y))
+        screen.blit(czolg22, (czolg2.x, czolg2.y))
 
 
         #rysowanie czołgów na ekranie
