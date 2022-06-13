@@ -4,7 +4,21 @@ import random
 import time
 import os
 
+ #PUNKTACJA - wyswietlanie
+        punkty1 = 0
+        font = pygame.font.Font('28dayslater.ttf', 32)
+        textX = 50
+        textY = 10
+        
+        punkt = font.render("Trafiony!", True, (120, 190, 99))
 
+        font_k = pygame.font.Font('28dayslater.ttf', 80)
+
+def tablica_punktow(x,y):
+    score = font.render("Punkty: " + str(punkty1), True, (0,0,0))
+    screen.blit(score, (x, y)) 
+
+     
 def main():
 
     #start z bazowymi parametrami
@@ -91,6 +105,7 @@ def main():
     running = True
 
     while running:
+        tablica_punktow(textX, textY)
         for event in pygame.event.get():
             #stopuje jesli użytkownik zamknął okno
             if event.type == pygame.QUIT:
@@ -493,17 +508,7 @@ def main():
         if czolg.bottom == wysokosc_okna:
             czolg.y -= speed_y
             
-            
-        #PUNKTACJA - wyswietlanie
-        punkty1 = 0
-        font = pygame.font.Font('28dayslater.ttf', 32)
-        textX = 50
-        textY = 10
-        
-        punkt = font.render("Trafiony!", True, (120, 190, 99))
-
-        font_k = pygame.font.Font('28dayslater.ttf', 80)
-        
+                  
         
         #!!!STRZELANIE!!!
         if pygame.key.get_pressed()[pygame.K_SPACE]:
@@ -594,7 +599,7 @@ def main():
                 strzelanie = False
                 licznik_strzelanie = 0
                 pygame.mixer.Sound.play(wybuch)
-                screen.blit(punkt, 50, 50)
+                screen.blit(punkt, 60, 60)
                 punkty1 += 1
                 
 
@@ -614,10 +619,7 @@ def main():
         #odświeżanie ekranu
         pygame.display.flip()
   
-def tablica_punktow(x,y):
-    score = font.render("Punkty: " + str(punkty1), True, (0,0,0))
-    screen.blit(score, (x, y)) 
 
 main()
-tablica_punktow(textX, textY)
+
 pygame.quit()
